@@ -22,3 +22,5 @@ RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
 NeedsCompilation: no
+URL: https://github.com/O-PREEDASAWAKUL/FourTaStiC
+BugReports: https://github.com/O-PREEDASAWAKUL/FourTaStiC/issues
