@@ -75,7 +75,7 @@ Timetrend_corr <- function(x, y = NULL, L, E,Time = NULL, E.default = TRUE) {
         stop("`Time` must be a natural number.")
       }
       # Convert ts or data frame to matrix form with Time columns
-      data = matrix(x, ncol = Time, byrow = TRUE)
+      data = as.matrix(x, ncol = Time, byrow = TRUE)
     } else if (inherits(x, c("matrix", "array"))) {
       data = x
     }

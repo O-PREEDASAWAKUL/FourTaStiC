@@ -48,7 +48,7 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns
-    data <- matrix(data, ncol = Time, byrow = TRUE)
+    data <- as.matrix(data, ncol = Time, byrow = TRUE)
   }
 
   # default parameter for plot

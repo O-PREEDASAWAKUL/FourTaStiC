@@ -41,7 +41,7 @@ Hierarchicalx4TaStiC  <- function(data, L, dist.method, ccut, h.method = "comple
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns
-    data <- matrix(data, ncol = Time, byrow = TRUE)
+    data <- as.matrix(data, ncol = Time, byrow = TRUE) # 02/02/2026
   }
   dist.dat = data
   if (dist.method %in% c("Time_eu.dist")) {

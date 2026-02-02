@@ -31,7 +31,7 @@ best.FourTaStiC <- function(data, L, E, Time = NULL, E.default = TRUE, pp = 0.08
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns
-    data <- matrix(data, ncol = Time, byrow = TRUE)
+    data <- as.matrix(data, ncol = Time, byrow = TRUE)
   }
   ttilt = if (E.default) {
     as.vector(rbind(-E, E))

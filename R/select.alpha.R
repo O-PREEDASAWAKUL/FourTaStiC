@@ -12,7 +12,7 @@ select.alpha <- function(data, Time = NULL, pp=0.08){
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns
-    data <- matrix(data, ncol = Time, byrow = TRUE)
+    data <- as.matrix(data, ncol = Time, byrow = TRUE)
   }
   if (!is.numeric(pp) || pp <= 0 || pp >= 1) {
     stop("`pp` must be a numeric percentile between 0 and 1.")
