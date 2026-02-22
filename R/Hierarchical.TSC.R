@@ -59,7 +59,7 @@ Hierarchicalx4TaStiC  <- function(data, L, dist.method, ccut, h.method = "comple
   if (dist.method %in% c("Timetrend_corr.dist","FourTaStiC.dist")) {
     out = list(clust.data = clust.dat, ddist = dist.obj)
   } else {
-    out = list(clust.data = clust.dat , clust.alpha = obj$Alpha, ddist = dist.obj)
+    out = list(clust.data = clust.dat , ddist = dist.obj)
   }
   return(out)
 }
