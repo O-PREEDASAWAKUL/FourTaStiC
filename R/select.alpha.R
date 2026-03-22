@@ -18,7 +18,7 @@ select.alpha <- function(data, Time = NULL, pp=0.08){
     stop("`pp` must be a numeric percentile between 0 and 1.")
   }
   al_eu.dist = dist(data,upper = TRUE) / ncol(data)
-  corrdist = Timetrend_corr.dist(data = data, L = 0, E = 0, Time = Time, E.default = TRUE, C = 0) # correlation distance
+  corrdist = Timetrend_corr_dist(data = data, L = 0, E = 0, Time = Time, E.default = TRUE, C = 0) # correlation distance
   param  = (max(al_eu.dist))/(quantile(corrdist,probs = pp) + max(al_eu.dist))
   return(param)
 }

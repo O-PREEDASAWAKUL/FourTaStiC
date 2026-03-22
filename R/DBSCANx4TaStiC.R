@@ -24,8 +24,8 @@ DBSCANx4TaStiC <- function(data, L , E, eps, minPts, dist.method, E.default =TRU
   if (!is.character(dist.method) || length(dist.method) != 1) {
     stop("`dist.method` must be a character string.")
   }
-  if (!dist.method %in% c("Time_eu.dist", "Timetrend_corr.dist", "FourTaStiC.dist")) {
-    stop("Invalid `dist.method`. Choose from: 'Time_eu.dist', 'Timetrend_corr.dist', 'FourTaStiC.dist'.")
+  if (!dist.method %in% c("Time_eu_dist", "Timetrend_corr_dist", "FourTaStiC_dist")) {
+    stop("Invalid `dist.method`. Choose from: 'Time_eu_dist', 'Timetrend_corr_dist', 'FourTaStiC_dist'.")
   }
   if (!is.matrix(data) && !is.data.frame(data) && !inherits(data, "ts")) {
     stop("`data` must be a numeric matrix, data frame, or a time series object (`ts`).")
@@ -50,11 +50,11 @@ DBSCANx4TaStiC <- function(data, L , E, eps, minPts, dist.method, E.default =TRU
     data <- matrix(data, ncol = Time, byrow = TRUE)
   }
   dist.dat = data
-  if (dist.method %in% c("Time_eu.dist")) {
+  if (dist.method %in% c("Time_eu_dist")) {
     dist.obj = do.call(dist.method, list(data = dist.dat, L = L, Time = Time))
-  } else if (dist.method %in% c("Timetrend_corr.dist")) {
+  } else if (dist.method %in% c("Timetrend_corr_dist")) {
     dist.obj = do.call(dist.method, list(data = dist.dat, L = L, E = E, Time = Time, E.default = E.default, C = C))
-  } else if (dist.method %in% c("FourTaStiC.dist")) {
+  } else if (dist.method %in% c("FourTaStiC_dist")) {
     obj = do.call(dist.method, list(data = dist.dat, L = L, E = E ,Time = Time, E.default = E.default, pp = pp, C = C, alpha = alpha))
     dist.obj = obj$ddist
   }

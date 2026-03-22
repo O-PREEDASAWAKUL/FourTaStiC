@@ -11,11 +11,11 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
   if (!is.character(dist.method) || length(dist.method) != 1) {
     stop("`dist.method` must be a character string.")
   }
-  if (!dist.method %in% c("Time_eu.dist", "Timetrend_corr.dist", "FourTaStiC.dist")) {
-    stop("Invalid `dist.method`. Choose from: 'Time_eu.dist', 'Timetrend_corr.dist', 'FourTaStiC.dist'.")
+  if (!dist.method %in% c("Time_eu_dist", "Timetrend_corr_dist", "FourTaStiC_dist")) {
+    stop("Invalid `dist.method`. Choose from: 'Time_eu_dist', 'Timetrend_corr_dist', 'FourTaStiC_dist'.")
   }
-  if (!h.method %in% c("complete", "average", "single")) {
-    stop("Invalid `h.method`. Choose from: 'complete', 'average', 'complete'.")
+  if (!h.method %in% c("complete", "average", "single", "ward.D", "ward.D2")) {
+    stop("Invalid `h.method`. Choose from: 'complete', 'average', 'single', 'ward.D', or 'ward.D2'.")
   }
   if (missing(E)) {
     stop("Missing input: `E` must be a real number or vector of small tilt angles.")}
@@ -53,27 +53,40 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
 
   # default parameter for plot
   default_control <- list(
-    x_label = "Number of Clusters (K)",
-    y_label = "Total Within-cluster Distance",
-    title = "Elbow Method for Optimal K",
-    point_size = 2,
-    line_size = 0.7,
-    color = "black"
+    labels = list(
+      x = "Number of Clusters (K)",
+      y = "Total Within-cluster Distance",
+      title = "Elbow Method for Optimal K"
+    ),
+    point = list(
+      size = 2,
+      color = "black",
+      alpha = 1
+    ),
+    line = list(
+      linewidth = 0.7,
+      color = "black",
+      linetype = 1
+    ),
+    theme = theme_minimal()
   )
-  # check control input
+
+  # check control input -----
   invalid_keys = setdiff(names(plot.control), names(default_control))
+
   if (length(invalid_keys) > 0) {
     warning("The following elements in `plot.control` are not recognized and will be ignored: ",
             paste(invalid_keys, collapse = ", "))
   }
+  # -----------
   y = numeric(kmax - kmin + 1)
   dist.dat = data
 
-  if (dist.method %in% c("Time_eu.dist")) {
+  if (dist.method %in% c("Time_eu_dist")) {
     dist.obj = do.call(dist.method, list(data = dist.dat, L = L, Time = Time))
-  } else if (dist.method %in% c("Timetrend_corr.dist")) {
+  } else if (dist.method %in% c("Timetrend_corr_dist")) {
     dist.obj = do.call(dist.method, list(data = dist.dat, L = L, E = E, Time = Time, E.default = E.default, C = C))
-  } else if (dist.method %in% c("FourTaStiC.dist")) {
+  } else if (dist.method %in% c("FourTaStiC_dist")) {
     obj = do.call(dist.method, list(data = dist.dat, L = L, E = E ,Time = Time, E.default = E.default, pp = pp, C = C, alpha = alpha))
     dist.obj = obj$ddist
   }
@@ -91,11 +104,11 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
       indat = dist.dat[clusters == i, , drop = FALSE]
 
       if (nrow(indat) > 1) {
-        if (dist.method %in% c("Time_eu.dist")) {
+        if (dist.method %in% c("Time_eu_dist")) {
           dist.in = do.call(dist.method, list(data = indat, L = L, Time = Time))
-        } else if (dist.method %in% c("Timetrend_corr.dist")) {
-          dist.in = do.call(dist.method, list(data = indat, L = L, E = E, Time = Time, E.default = E.default, C=C))
-        } else if (dist.method %in% c("FourTaStiC.dist")) {
+        } else if (dist.method %in% c("Timetrend_corr_dist")) {
+          dist.in = do.call(dist.method, list(data = indat, L = L, E = E, Time = Time, E.default = E.default, C = C))
+        } else if (dist.method %in% c("FourTaStiC_dist")) {
           obj = do.call(dist.method, list(data = indat, L = L, E = E ,Time = Time, E.default = E.default, pp = pp, C = C, alpha = alpha))
           dist.in = obj$ddist
         }
@@ -112,11 +125,16 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
   control = modifyList(default_control, plot.control)
   frame = data.frame("X" = kmin:kmax, "Y" = y)
   el.plot = ggplot(frame, aes(x = X, y = Y)) +
-    geom_point(size = control$point_size, color = control$color) +
-    geom_line(linewidth = control$line_size, color = control$color) +
-    labs(x = control$x_label, y = control$y_label, title = control$title) +
-    theme_minimal()
-  return(list(elbow.frame = frame, elbow.plot = el.plot))
+    do.call(geom_point, c(list(mapping = aes()), control$point)) +
+    do.call(geom_line, c(list(mapping = aes()), control$line)) +
+    labs(
+      x = control$labels$x,
+      y = control$labels$y,
+      title = control$labels$title
+    ) +
+    control$theme
+  result = list(elbow_data = frame, elbow_plot = el.plot)
+  return(result)
 }
 
 

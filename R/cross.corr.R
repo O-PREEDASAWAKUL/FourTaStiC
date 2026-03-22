@@ -1,8 +1,8 @@
 # Cross cor matrix
-cross.corr <- function(data, group, L, E, E.default = TRUE) {
+cross.corr <- function(data, clust.result, L, E, E.default = TRUE) {
   if (missing(data))
     stop("Missing input argument. Please provide a numeric matrix, data frame, or time series object (`ts`).")
-  if (missing(group))
+  if (missing(clust.result))
     stop("Missing input argument. Please provide a vector or the column that indicates the label in your data")
   if (missing(L)) {
     stop("Missing input: `L` must be a natural number indicating time steps to shift.")}
@@ -11,8 +11,8 @@ cross.corr <- function(data, group, L, E, E.default = TRUE) {
   if (!is.logical(E.default)) {
     stop("`E.default` must be a logical value.")
   }
-  group = as.numeric(as.factor(group))
-  groups = levels(as.factor(group))
+  group = as.numeric(as.factor(clust.result))
+  groups = levels(as.factor(clust.result))
   G = length(groups)
   corr_matrix = matrix(NA, nrow = G, ncol = G)
   rownames(corr_matrix) <- colnames(corr_matrix) <- groups
