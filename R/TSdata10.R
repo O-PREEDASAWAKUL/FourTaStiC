@@ -1,14 +1,14 @@
-#' Time series dataset 3
+#' Time series dataset 10
 #'
-#' A synthetic time series dataset containing 20 series, each with 75 time points.
+#' A synthetic time series dataset containing 20 series, each with 60 time points.
 #' The series are categorized into three classes and generated using sine wave-based
 #' structures to simulate periodic (seasonal) behavior. Gaussian noise and random
 #' variation were added to introduce variability.
 #'
-#' @format A matrix with 75 rows (time points) and 21 columns:
+#' @format A matrix with 60 rows (time points) and 21 columns:
 #' \describe{
 #'   \item{V1--V20}{Numeric columns representing time series values.}
-#'   \item{label}{A categorical variable indicating the class (1, 2, 3, ..., 6, or 7).}
+#'   \item{label}{A categorical variable indicating the class (1, 2, 3, 4, 5, or 6).}
 #' }
 #'
 #' @references Preedasawakul, O. and Wiroonsri, N. (2025).\emph{4TaStiC: Time and trend traveling time series clustering for classifying long-term type 2 diabetes patients}.\emph{ACM Transactions on Computing for Healthcare}.
@@ -17,5 +17,5 @@
 #' Onthada Preedasawakul and Nathakhun Wiroonsri
 #'
 #' @seealso
-#' {\link{TSdata2}, \link{TSdata4}}
-"TSdata3"
+#' {\link{TSdata9}, \link{TSdata11}}
+"TSdata10"

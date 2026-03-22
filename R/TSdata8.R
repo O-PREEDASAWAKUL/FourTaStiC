@@ -11,7 +11,7 @@
 #'   \item{label}{A categorical variable indicating the class (1, 2, 3, 4, or 5).}
 #' }
 #'
-#' @references Onthada Preedasawakul and Nathakhun Wiroonsri, unpublished.
+#' @references Preedasawakul, O. and Wiroonsri, N. (2025).\emph{4TaStiC: Time and trend traveling time series clustering for classifying long-term type 2 diabetes patients}.\emph{ACM Transactions on Computing for Healthcare}.
 #'
 #' @author
 #' Onthada Preedasawakul and Nathakhun Wiroonsri
