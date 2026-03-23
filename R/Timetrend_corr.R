@@ -1,5 +1,5 @@
 Timetrend_corr <- function(x, y = NULL, L, E,Time = NULL, E.default = TRUE) {
-  if (!is.positive_integer(L)) {
+  if (!.is.positive_integer(L)) {
     stop("Argument 'L' must be a natural number indicating time step to be shifted.")
   }
   if (!is.vector(E)) {
@@ -71,7 +71,7 @@ Timetrend_corr <- function(x, y = NULL, L, E,Time = NULL, E.default = TRUE) {
       if (is.null(Time)) {
         stop(paste0("'", class(x), "' input detected. Please provide the `Time` argument."))
       }
-      if (!is.positive_integer(Time)) {
+      if (!.is.positive_integer(Time)) {
         stop("`Time` must be a natural number.")
       }
       # Convert ts or data frame to matrix form with Time columns

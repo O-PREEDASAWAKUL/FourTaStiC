@@ -22,10 +22,10 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
   if (!is.matrix(data) && !is.data.frame(data) && !inherits(data, "ts")) {
     stop("`data` must be a numeric matrix, data frame, or a time series object (`ts`).")
   }
-  if (!is.positive_integer(L)) {
+  if (!.is.positive_integer(L)) {
     stop("Argument 'L' must be a natural number indicating time step to be shifted.")
   }
-  if (!is.positive_integer(kmax)) {
+  if (!.is.positive_integer(kmax)) {
     stop("Argument 'kmax' must be a natural number.")
   }
   if (!is.vector(E)) {
@@ -44,7 +44,7 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
     if (is.null(Time)) {
       stop(paste0("'", class(data), "' input detected. Please provide the `Time` argument."))
     }
-    if (!is.positive_integer(Time)) {
+    if (!.is.positive_integer(Time)) {
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns
@@ -124,7 +124,7 @@ elbowx4TaStiC <- function(data, dist.method, L, E, kmax,
   # Combine defaults with user-provided controls
   control = modifyList(default_control, plot.control)
   frame = data.frame("X" = kmin:kmax, "Y" = y)
-  el.plot = ggplot(frame, aes(x = X, y = Y)) +
+  el.plot = ggplot(frame, aes(x = .data$X, y = .data$Y)) +
     do.call(geom_point, c(list(mapping = aes()), control$point)) +
     do.call(geom_line, c(list(mapping = aes()), control$line)) +
     labs(

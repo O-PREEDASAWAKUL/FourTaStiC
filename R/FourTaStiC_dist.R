@@ -8,7 +8,7 @@ FourTaStiC_dist <- function(data, L, E ,Time = NULL, E.default = TRUE, pp = 0.08
   if (!is.matrix(data) && !is.data.frame(data) && !inherits(data, "ts")) {
     stop("`data` must be a numeric matrix, data frame, or a time series object (`ts`).")
   }
-  if (!is.positive_integer(L)) {
+  if (!.is.positive_integer(L)) {
     stop("Argument 'L' must be a natural number indicating time step to be shifted.")
   }
   if (!is.numeric(E) || length(E) < 1) {
@@ -30,7 +30,7 @@ FourTaStiC_dist <- function(data, L, E ,Time = NULL, E.default = TRUE, pp = 0.08
     if (is.null(Time)) {
       stop(paste0("'", class(data), "' input detected. Please provide the `Time` argument."))
     }
-    if (!is.positive_integer(Time)) {
+    if (!.is.positive_integer(Time)) {
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns
@@ -56,7 +56,7 @@ FourTaStiC_dist <- function(data, L, E ,Time = NULL, E.default = TRUE, pp = 0.08
       }
       alpha = alpha
     } else {
-      alpha = select.alpha(data = data, pp = pp)
+      alpha = select_alpha(data = data, pp = pp)
     }
     print(paste("Selected alpha:", alpha))
     rresult = data.frame()

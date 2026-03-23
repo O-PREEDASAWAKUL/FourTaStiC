@@ -24,7 +24,7 @@ Hierarchicalx4TaStiC  <- function(data, L, dist.method, ccut, h.method = "comple
   if (!is.matrix(data) && !is.data.frame(data) && !inherits(data, "ts")) {
     stop("`data` must be a numeric matrix, data frame, or time series object.")
   }
-  if (!is.positive_integer(L)) {
+  if (!.is.positive_integer(L)) {
     stop("Argument 'L' must be a natural number indicating the maximum time shift.")
   }
   if (!is.vector(E)) {
@@ -50,7 +50,7 @@ Hierarchicalx4TaStiC  <- function(data, L, dist.method, ccut, h.method = "comple
     if (is.null(Time)) {
       stop(paste0("'", class(data), "' input detected. Please provide the `Time` argument."))
     }
-    if (!is.positive_integer(Time)) {
+    if (!.is.positive_integer(Time)) {
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns

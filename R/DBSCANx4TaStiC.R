@@ -13,13 +13,13 @@ DBSCANx4TaStiC <- function(data, L , E, eps, minPts, dist.method, E.default =TRU
   if (missing(minPts)){
     stop("Missing input: minPts must be a positive integer.")
   }
-  if (!is.positive_integer(L))
+  if (!.is.positive_integer(L))
     stop("`L` must be a positive integer indicating the time shift.")
   if (!is.numeric(E))
     stop("`E` must be a numeric value or numeric vector.")
   if (!is.numeric(eps) || eps <= 0)
     stop("`eps` must be a positive numeric value.")
-  if (!is.positive_integer(minPts))
+  if (!.is.positive_integer(minPts))
     stop("`minPts` must be a positive integer.")
   if (!is.character(dist.method) || length(dist.method) != 1) {
     stop("`dist.method` must be a character string.")
@@ -43,7 +43,7 @@ DBSCANx4TaStiC <- function(data, L , E, eps, minPts, dist.method, E.default =TRU
     if (is.null(Time)) {
       stop(paste0("'", class(data), "' input detected. Please provide the `Time` argument."))
     }
-    if (!is.positive_integer(Time)) {
+    if (!.is.positive_integer(Time)) {
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns

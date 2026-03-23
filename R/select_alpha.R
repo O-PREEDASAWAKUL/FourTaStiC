@@ -1,4 +1,4 @@
-select.alpha <- function(data, Time = NULL, pp=0.08){
+select_alpha <- function(data, Time = NULL, pp=0.08){
   if (missing(data))
     stop("Missing input argument. Please provide a numeric matrix, data frame, or time series object (`ts`).")
   if (!is.matrix(data) && !is.data.frame(data) && !inherits(data, "ts")) {
@@ -8,7 +8,7 @@ select.alpha <- function(data, Time = NULL, pp=0.08){
     if (is.null(Time)) {
       stop(paste0("'", class(data), "' input detected. Please provide the `Time` argument."))
     }
-    if (!is.positive_integer(Time)) {
+    if (!.is.positive_integer(Time)) {
       stop("`Time` must be a natural number.")
     }
     # Convert ts or data frame to matrix form with Time columns
