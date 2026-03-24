@@ -11,7 +11,7 @@ The package is designed for clustering and visualization of time series, especia
 The **4TaStiC** dissimilarity addresses this by combining:
 
 - a **correlation-based dissimilarity** for measuring similarity in shape, and
-- a **weighted Euclidean dissimilarity** for measuring magnitude differences,
+- a **weighted Euclidean distance** for measuring magnitude differences,
 
 while allowing candidate alignments through time shifts and trend tilts.
 
