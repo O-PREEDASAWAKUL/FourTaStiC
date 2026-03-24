@@ -33,6 +33,7 @@ You can install the development version from GitHub using:
 ```r
 # install.packages("remotes")
 remotes::install_github("O-PREEDASAWAKUL/FourTaStiC")
+```
 
 ## License
 
