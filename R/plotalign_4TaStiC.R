@@ -1,4 +1,4 @@
-plotbest_FourTaStiC  <- function(group.data,
+plotalign_4TaStiC <- function(group.data,
                              label.name,
                              L, E, pp = 0.08,
                              choose.plot = "all",
@@ -57,7 +57,7 @@ plotbest_FourTaStiC  <- function(group.data,
   for (i in group_ids) {
     data_matrix = get_group_data(i)
 
-    best = best_FourTaStiC(
+    best = pairalign_4TaStiC(
       data = data_matrix,
       L = L,
       E = E,
@@ -68,7 +68,7 @@ plotbest_FourTaStiC  <- function(group.data,
       C = C
     )
 
-    best_mat = best.matrix(data = data_matrix, best.align = best)
+    best_mat = refalign_4TaStiC(data = data_matrix, best.align = best)
 
     # Prepare plot data
     shift_data = melt(t(best_mat$shift.mat[, 1:max_col]))

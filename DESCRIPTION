@@ -1,8 +1,8 @@
 Package: FourTaStiC
 Type: Package
 Title: 4TaStiC: Time and trend traveling time series clustering
-Version: 1.0.1
-Imports: dplyr,reshape2, ggplot2, dbscan, scales, paletteer
+Version: 1.0.0
+Imports: dplyr,reshape2, ggplot2, dbscan, scales, paletteer, utils, rlang, stats
 Authors@R: 
     c(person(given = "Nathakhun",
             family = "Wiroonsri",

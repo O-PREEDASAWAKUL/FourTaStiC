@@ -1,4 +1,4 @@
-best.matrix <- function(data, best.align){
+refalign_4TaStiC <- function(data, best.align){
   n.sam = nrow(data)
   direction = best.align$best.align[1,]
   t.shift = best.align$best.shift[1,]

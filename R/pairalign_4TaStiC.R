@@ -1,4 +1,4 @@
-best_FourTaStiC <- function(data, L, E, Time = NULL, E.default = TRUE, pp = 0.08, alpha = NULL, C = 0){
+pairalign_4TaStiC <- function(data, L, E, Time = NULL, E.default = TRUE, pp = 0.08, alpha = NULL, C = 0){
   if (missing(data))
     stop("Missing input argument. Please provide a numeric matrix, data frame, or time series object (`ts`).")
   if (missing(L)) {

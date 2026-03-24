@@ -21,7 +21,7 @@ structures to simulate periodic (seasonal) behavior. Gaussian noise and random
 variation were added to introduce variability.
 }
 \references{
-Preedasawakul, O. and Wiroonsri, N. (2025).\emph{4TaStiC: Time and trend traveling time series clustering for classifying long-term type 2 diabetes patients}.\emph{ACM Transactions on Computing for Healthcare}.
+Preedasawakul, O. and Wiroonsri, N. (2026).\emph{4TaStiC: Time and trend traveling time series clustering for classifying long-term type 2 diabetes patients}.\emph{ACM Transactions on Computing for Healthcare}.
 }
 \seealso{
 {\link{TSdata9}, \link{TSdata11}}
