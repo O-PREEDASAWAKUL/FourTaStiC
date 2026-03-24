@@ -33,3 +33,7 @@ You can install the development version from GitHub using:
 ```r
 # install.packages("remotes")
 remotes::install_github("O-PREEDASAWAKUL/FourTaStiC")
+
+## License
+
+The BayesCVI package as a whole is distributed under [GPL(>=3)](https://www.gnu.org/licenses/gpl-3.0.en.html).
