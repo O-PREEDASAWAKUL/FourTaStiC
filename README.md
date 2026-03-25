@@ -3,7 +3,7 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-**4TaStiC**: Time and trend traveling time series clusterings.
+**4TaStiC**: Time and trend traveling time series clustering.
 
 The package is designed for clustering and visualization of time series, especially when similar trajectories may occur with delays or slight trend changes.
 
