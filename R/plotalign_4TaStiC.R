@@ -101,7 +101,7 @@ plotalign_4TaStiC <- function(group.data,
     geom_line() +
     geom_point() +
     labs(color = "Group") +
-    scale_color_paletteer_d("ggthemr::flat") +
+    scale_color_paletteer_d("ggsci::default_igv") +
     scale_x_continuous(breaks = pretty_breaks()) +
     theme_bw()
   results[["Overall_mean"]] =  plot.mean
