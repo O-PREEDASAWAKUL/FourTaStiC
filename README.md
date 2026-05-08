@@ -35,6 +35,10 @@ You can install the development version from GitHub using:
 remotes::install_github("O-PREEDASAWAKUL/FourTaStiC")
 ```
 
+## References
+Preedasawakul, O., and Wiroonsri, N., 4TaStiC: Time and trend traveling time series clustering for classifying long-term type 2 diabetes patients, <i>ACM Transactions on Computing for Healthcare</i>, 2026. (https://dl.acm.org/doi/10.1145/3802823)
+
+
 ## License
 
 The FourTaStiC package as a whole is distributed under [GPL(>=3)](https://www.gnu.org/licenses/gpl-3.0.en.html).
