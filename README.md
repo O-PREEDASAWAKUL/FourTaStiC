@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # FourTaStiC (R package)
 
 <!-- badges: start -->
@@ -84,4 +83,3 @@ Preedasawakul, O., and Wiroonsri, N., 4TaStiC: Time and trend traveling time ser
 ## License
 
 The FourTaStiC package as a whole is distributed under [GPL(>=3)](https://www.gnu.org/licenses/gpl-3.0.en.html).
->>>>>>> 7b881fb1a045dba070e2f8c3b235a04ac96fdfa1
