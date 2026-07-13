@@ -35,10 +35,6 @@ You can install the development version from GitHub using:
 remotes::install_github("O-PREEDASAWAKUL/FourTaStiC")
 ```
 
-## License
-
-The FourTaStiC package as a whole is distributed under [GPL(>=3)](https://www.gnu.org/licenses/gpl-3.0.en.html).
-=======
 # FourTaStiC (R package)
 
 <!-- badges: start -->
