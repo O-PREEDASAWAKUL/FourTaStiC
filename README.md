@@ -25,7 +25,7 @@ The package includes functions for:
 - plotting aligned time series within clusters
 - performing clustering using the 4TaStiC dissimilarity
 - artificial dataset for illustrating the use of the 4TaStiC framework.
-- 
+  
 ## Installation
 
 You can install the development version from GitHub using:
